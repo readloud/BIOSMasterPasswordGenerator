@@ -1,0 +1,84 @@
+CMOSSave 4.7 build: 9520 released: 2012-11-25
+
+Restores corrupted CMOS from backup.
+
+Copyright: (c) 2014 Canadian Mind Products.
+
+asm command line utility.
+Download from: http://mindprod.com/products4.html#CMOSSAVE
+View formatted HTML Manual online at: http://mindprod.com/utility/cmossave.manual.html
+
+----
+
+Notes:
+
+This program can only be used from the command prompt, (or via an command
+line style icon shortcut) e.g. under Windows command.exe or JPSoft
+tcmd.exe, formerly called the DOS box. Just clicking the programs in a
+directory listing will not do anything useful. Just typing the program
+names at the command prompt will not either.
+
+This program requires a manual install! See below.
+
+This program works with vanilla text files, (e.g. ASCII files or UTF-8
+Unicode files). You will need a text editor to create and view them, not a word
+processor. e.g. notepad, Visual Slick Edit or other suitable text editor
+http://mindprod.com/jgloss/editor.html. You must use a monospaced font
+http://mindprod.com/jgloss/monospacedfonts.html (aka fixed pitch, aka
+programmer font) to view your files, or they won't look properly aligned.
+
+I put out an avalanche of free software into the world, and submit PAD
+files to hundreds of distribution sites, but I rarely hear back from
+anyone.  What's happening?  Does it all just work fine?  It is so
+complicated nobody can figure out how to use it and they give up on it?
+It is it useful?  Since everyone has the source, do people just fix the
+programs to their liking themselves?  Did you have trouble installing?  Do
+I presume you know too much?  I would be happy to hear from you about your
+experiences, positive or negative and your requests for improvements.  A
+one-line email to roedy@mindprod.com would be great.
+
+===> Free <===
+Full source included.
+You may even include the source code, modified or unmodified
+in free/commercial open source/proprietary programs that you write and distribute.
+May be used freely for any purpose but military.
+For more details on this restriction, see
+http://mindprod.com/contact/nonmil.html
+If you include any Canadian Mind Products code in your own applications,
+your app too must be labelled non-military use only.
+http://mindprod.com/contact/nonmil.html
+All ASM source and EXE files code are included.
+
+----
+
+Prerequisites:
+
+This program runs under Microsoft Windows or DOS only (e.g. Win2K/XP/Vista) in a DOS compatibility box).
+
+----
+
+Installing on a PC:
+
+Download source and executable files to run on your own machine as a standalone utility.
+To install, extract the zip download with WinZip
+(or similar unzip utility) into any directory you please,
+often J:\ --  ticking off the <span class="click">use folder names</span> option.
+
+----
+
+Installing on a MacIntosh:
+
+This assembler program will not run on a Mac.
+
+----
+
+Rebuilding:
+
+The zip already contains the necessary exe, so unless you modify
+the program, there is no need to recompile the source or re-assemble it..
+Configure.java basedir="E:/" in rebuild.xml to the drive where your files are and tweak rebuild.xml.
+Use ANT and rebuild.xml, not build.xml, to reassemble and link.
+
+----
+
+Use:

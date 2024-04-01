@@ -1,0 +1,24 @@
+@echo off
+@echo  °±² descother.btm: add TCC descriptions to all cmossave non-project files  ²±° 
+rem encoded in IBM437
+if exist "E:\mindprod\image\icon16\cmossave.png" describe "E:\mindprod\image\icon16\cmossave.png" /D"16x16 icon for the CMOSSave project"
+if exist "E:\mindprod\image\icon32\cmossave.png" describe "E:\mindprod\image\icon32\cmossave.png" /D"32x32 icon for the CMOSSave project"
+if exist "E:\mindprod\image\icon32\cmossave.gif" describe "E:\mindprod\image\icon32\cmossave.gif" /D"32x32 gif icon for the CMOSSave project"
+if exist "E:\mindprod\image\icon48\cmossave.icon48.png" describe "E:\mindprod\image\icon48\cmossave.icon48.png" /D"roughly 48x48 icon for the CMOSSave project"
+if exist "E:\mindprod\image\icon64\cmossave.png" describe "E:\mindprod\image\icon64\cmossave.png" /D"roughly 64x64 icon for the CMOSSave project"
+if exist "E:\mindprod\image\icon64\cmossave.gif" describe "E:\mindprod\image\icon64\cmossave.gif" /D"64x64 gif icon for the CMOSSave project"
+if exist "E:\mindprod\image\icon128\cmossave.png" describe "E:\mindprod\image\icon128\cmossave.png" /D"roughly 128x128 icon for the CMOSSave project"
+if exist "E:\mindprod\image\screenshot\cmossave.png" describe "E:\mindprod\image\screenshot\cmossave.png" /D"screenshot for the CMOSSave project"
+if exist "E:\mindprod\image\splash\cmossave.gif" describe "E:\mindprod\image\splash\cmossave.gif" /D"splash for the CMOSSave project"
+if exist "E:\mindprod\utility\cmossaveicon32.gif" describe "E:\mindprod\utility\cmossaveicon32.gif" /D"cmossave 32x32 icon gif"
+if exist "E:\mindprod\utility\cmossaveicon64.gif" describe "E:\mindprod\utility\cmossaveicon64.gif" /D"cmossave 64x64 icon gif"
+if exist "E:\mindprod\utility\cmossavesplash.gif" describe "E:\mindprod\utility\cmossavesplash.gif" /D"cmossave splash gif"
+if exist "E:\mindprod\utility\cmossave.jnlp" describe "E:\mindprod\utility\cmossave.jnlp" /D"cmossave jnlp Java Web Start launch"
+if exist "E:\sys\cmossave.com" describe "E:\sys\cmossave.com" /D"Windows executable to run the cmossave program: Restores corrupted CMOS from backup"
+if exist "E:\sys\cmoschk.com" describe "E:\sys\cmoschk.com" /D"Windows executable to run the cmoschk program"
+if exist "E:\sys\cmosrest.com" describe "E:\sys\cmosrest.com" /D"Windows executable to run the cmosrest program"
+if exist "E:\mindprod\precis\cmossave.txt" describe "E:\mindprod\precis\cmossave.txt" /D"precis of the CMOSSave project: Restores corrupted CMOS from backup"
+if exist "E:\mindprod\pad\cmossave.xml" describe "E:\mindprod\pad\cmossave.xml" /D"ASP PAD desc of the CMOSSave project: Restores corrupted CMOS from backup"
+if exist "E:\mindprod\zips\cmossave47.zip" describe "E:\mindprod\zips\cmossave47.zip" /D"CMOSSave 4.7 distribute zip archive: Restores corrupted CMOS from backup"
+echo done
+rem -30-

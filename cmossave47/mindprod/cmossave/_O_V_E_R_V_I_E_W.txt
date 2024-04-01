@@ -1,0 +1,42 @@
+_O_V_E_R_V_I_E_W.txt    Commented List of all files for CMOSSave, with one line descriptions.
+a.bat                   Assemble with MASM 6 and Link 5.6 to *.com
+build.xml               Complex ANT build script for CMOSSave
+cmoschk.asm             cmoschk alt asm program source
+cmoschk.com             DOS 16-bit executable to run the cmoschk program
+cmoschk.lst             generated: cmoschk alt DOS asm program assembler listing
+cmoschk.map             generated: cmoschk alt DOS asm program linker output
+cmosinc0.asm            Include asm source
+cmosinc1.asm            include asm source for cmosrest and cmoschk
+cmosrest.asm            cmosrest alt asm program source
+cmosrest.com            DOS 16-bit executable to run the cmosrest program
+cmosrest.lst            generated: cmosrest alt DOS asm program assembler listing
+cmosrest.map            generated: cmosrest alt DOS asm program linker output
+cmossave.asm            cmossave main DOS asm program source
+cmossave.com            DOS 16-bit executable to run the cmossave program: Restores corrupted CMOS from backup
+cmossave.icon128.png    roughly 128x128 icon for the CMOSSave project
+cmossave.icon16.png     16x16 icon for the CMOSSave project
+cmossave.icon32.png     32x32 icon for the CMOSSave project
+cmossave.icon48.png     roughly 48x48 icon for the CMOSSave project
+cmossave.icon64.png     roughly 64x64 icon for the CMOSSave project
+cmossave.lst            generated: cmossave main DOS asm program assembler listing
+cmossave.manual.html    detailed HTML manual for the CMOSSave project
+cmossave.map            generated: cmossave main DOS asm program linker output
+cmossave.screenshot.png screenshot for the CMOSSave project
+cmossave.use            precis(summary) Restores corrupted CMOS from backup Generated
+cmossave.xml            ASP PAD desc of the CMOSSave project: Restores corrupted CMOS from backup
+cmossave47.zip          CMOSSave 4.7 distribute zip: Restores corrupted CMOS from backup
+desc.btm                creates TCC file descriptions for project files
+descother.btm           creates TCC file descriptions for non-project files
+DESCRIPT.ION            TCC file descriptions
+descript0.ion           generated file of overriding descriptions to merge into DESCRIPT.ION
+descript2.ion           generated file default descriptions to merge into DESCRIPT.ION
+jdisplay.css            cascading style sheet for displaying source code in HTML
+MasterDistribution.site URL to find the master copy of the CMOSSave project files
+mindprod.css            cascading style sheet for general HTML
+o.bat                   Assemble with OptAsm and OLink to *.com
+rebuild.xml             Simplified ANT build script for CMOSSave
+untouch.digest          generated: enables untouching (set date back) unchanged but redated files.
+use.txt                 key facts about the CMOSSave project. Generates cmossave.use
+version.txt             key rurrent version info about the CMOSSave project. Generates cmossave.use
+versionhistory.txt      version history about the CMOSSave project. Generates cmossave.use
+zip.look                uncommented zip manifest for cmossave47.zip

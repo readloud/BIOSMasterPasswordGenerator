@@ -1,0 +1,37 @@
+CMOSSave CMOSRest CMOSChk restore corrupted CMOS from backup and check
+that CMOS has not been tampered with.  Featured in Karen Kenworthy's
+Windows Magazine column October 1994 and April 1995, and Fred Langa's in
+1999.  It has also been bundled on the CDs that come with various books.
+
+Note: progam is called CMOSsave (double s) not cmosave.
+
+Naive users sometimes meddle with CMOS settings.  We need a fast way to
+put the scores of subtle CMOS configuration settings back the way they
+were.
+
+Power surges can corrupt CMOS.  We need a way for a naive user to quickly
+restore all the CMOS settings, (at least the first 128 bytes worth).
+
+If the battery fails, the contents will be lost.  We need a way to restore
+a known working CMOS configuration.
+
+CMOSRest restores ALL of CMOS, including the proprietary extended COMS
+settings like wait states, clock speeds, shadow RAM etc.  It does not
+handle the proprietary extended cmos.
+
+CMOSRest can also be used to toggle between two CMOS configurations, for
+example with and without a removable hard drive installed.
+
+CMOSChk can detect subtle corruption to CMOS, as might be caused by a
+rogue program or a virus, something that might slow your machine or make
+it unreliable.
+
+The CMOS suite will work under DOS, Windows 3.x, Windows 95/98/ME or OS/2.
+It partly works under NT, Windows 2000 and XP, Vista and Windows 7.  see
+comossave.manual.html for details.  However, these utilities are intended
+to be used mainly within autoexec.bat during the DOS phase of the boot.
+Further, there will be spurious CMOS changes when you reboot between Win95
+and NT.
+
+Why the computer chip icon?  It represents the CMOS chip on your
+motherboard where the BIOS settings are stored.

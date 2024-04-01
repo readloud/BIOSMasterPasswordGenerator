@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!-- BUILD.XML complex cmossave 4.7 build that creates a ZIP file -->
+<!-- Build with ANT zippost  -->
+<!-- Assemble cmossave using ANT -->
+<!-- Invoke with [ant clean] to erase class files and start over. -->
+<!-- Invoke with [ant compile] to just assemble and link. -->
+<!-- Invoke with [ant zip] to create source code zip file. -->
+<!-- Invoke with [ant zippost] to post zip file to the mindprod website. -->
+<!-- You must have ml6.exe, ml.err (the assembler) and link56.exe on the path. -->
+<!-- You can get ml.exe 6.15 from http://download.microsoft.com/download/vb60ent/Update/6/W9X2KXP/EN-US/vcpp5.exe extract with WinZip. -->
+<!-- You can get link.exe 5.6 from http://download.microsoft.com/download/vc15/Update/1/W98/EN-US/Lnk563.exe and extract with WinZip. -->
+<!-- and rename them to ml6.exe and link56.exe so they will not be confused with ml.exe 11.0 and link.exe 11.0 used by C/C++ -->
+<!-- ml.exe/link.exe 11.0, bundled with Visual C++ Express 2012 -->
+<!-- will NOT work unless you modify the ANT script and modify the source code drastically. -->
+<!-- You could assemble manually with: -->
+<!-- ml6.exe /AT /c /Fl /Zf /Zm cmossave.asm -->
+<!-- and link with: -->
+<!-- link56.exe /MAP /TINY cmossave.obj,cmossave.com,cmossave.map; -->
+<!-- For details of ANT use, see http://mindprod.com/jgloss/ant.html -->
+
+<!-- D E F I N I T I O N S -->
+<!-- ANT.project.dir is com/mindprod/cmossave -->
+<!-- basedir is E:/ -->
+<project name="cmossave" basedir="E:/" default="jar">
+
+<!-- extensions for zip. Case sensitive! -->
+<property name="distributed.exts" value="**/*.au,**/*.asm,**/*.bat,**/*.btm,**/*.c,**/*.COM,**/*.com,**/*.cpp,**/*.css,**/*.csv,**/*.dll,**/*.EXE,**/*.exe,**/*.gif,**/*.h,**/*.hpp,**/*.htm,**/*.html,**/*.ico,**/*.ION,**/*.ion,**/*.jar,**/*.java,**/*.jnlp,**/*.jpg,**/*.look,**/*.png,**/*.properties,**/*.ser,**/*.sln,**/*.txt,**/*.use,**/*.xml" />
+
+<!-- dirs we to exclude from zip. Case sensitive! -->
+<property name="nondistributed" value="**/javadoc/**,**/jetpdb/**,**/Debug/**,**/Release/**" />
+
+<!-- C L E A N -->
+<target name="clean">
+<echo message="    :::    cmossave    :::    deleting files to force regeneration." />
+  <delete>
+    <fileset dir="com/mindprod/cmossave" includes="**/*.com" />
+    <fileset dir="com/mindprod/cmossave" includes="**/*.exe" />
+    <fileset dir="com/mindprod/cmossave" includes="**/*.lst" />
+    <fileset dir="com/mindprod/cmossave" includes="**/*.MAP" />
+    <fileset dir="com/mindprod/cmossave" includes="**/*.map" />
+    <fileset dir="com/mindprod/cmossave" includes="**/*.obj" />
+    <fileset dir="com/mindprod/cmossave" includes="cmossave47.zip" />
+  </delete>
+</target>
+
+<!-- C O M P I L E -->
+<target name="compile">
+<echo message="    :::    cmossave    :::    assembling tree." />
+  <exec executable="ml6.exe" dir="com/mindprod/cmossave">
+    <arg value="/AT" />
+    <arg value="/c" />
+    <arg value="/Fl" />
+    <arg value="/Zf" />
+    <arg value="/Zm" />
+    <arg value="cmossave.asm" />
+  </exec>
+  <exec executable="link56.exe" dir="com/mindprod/cmossave">
+    <arg value="/MAP" />
+    <arg value="/TINY" />
+    <arg value="cmossave.obj,cmossave.com,cmossave.map,,," />
+  </exec>
+  <!-- delete obj now com created -->
+  <delete file="com/mindprod/cmossave/cmossave.obj" failonerror="false" />
+  <exec executable="ml6.exe" dir="com/mindprod/cmossave">
+    <arg value="/AT" />
+    <arg value="/c" />
+    <arg value="/Fl" />
+    <arg value="/Zf" />
+    <arg value="/Zm" />
+    <arg value="cmoschk.asm" />
+  </exec>
+  <exec executable="link56.exe" dir="com/mindprod/cmossave">
+    <arg value="/MAP" />
+    <arg value="/TINY" />
+    <arg value="cmoschk.obj,cmoschk.com,cmoschk.map,,," />
+  </exec>
+  <!-- delete obj now com created -->
+  <delete file="com/mindprod/cmossave/cmoschk.obj" failonerror="false" />
+  <exec executable="ml6.exe" dir="com/mindprod/cmossave">
+    <arg value="/AT" />
+    <arg value="/c" />
+    <arg value="/Fl" />
+    <arg value="/Zf" />
+    <arg value="/Zm" />
+    <arg value="cmosrest.asm" />
+  </exec>
+  <exec executable="link56.exe" dir="com/mindprod/cmossave">
+    <arg value="/MAP" />
+    <arg value="/TINY" />
+    <arg value="cmosrest.obj,cmosrest.com,cmosrest.map,,," />
+  </exec>
+  <!-- delete obj now com created -->
+  <delete file="com/mindprod/cmossave/cmosrest.obj" failonerror="false" />
+</target>
+
+<!-- G A T H E R -->
+<target name="gather" depends="compile">
+<echo message="    :::    cmossave    :::    gathering files to build jar/zip." />
+  <!-- prepare cmossave.use precis from two pieces -->
+    <concat destfile="com/mindprod/cmossave/cmossave.use" fixlastline="yes">
+      <filelist dir="com/mindprod/cmossave" files="version.txt,use.txt,versionhistory.txt" />
+    </concat>
+    <copy file="E:/env/a.bat" todir="com/mindprod/cmossave" failonerror="false" overwrite="true" />
+    <copy file="E:/env/o.bat" todir="com/mindprod/cmossave" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/utility/cmossave.html" todir="com/mindprod/cmossave" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/utility/cmossave.manual.html" todir="com/mindprod/cmossave" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/ico/cmossave.ico" tofile="E:/mindprod/utility/cmossave.ico" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon128/cmossave.png" tofile="com/mindprod/cmossave/cmossave.icon128.png" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon16/cmossave.png" tofile="com/mindprod/cmossave/cmossave.icon16.png" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon32/cmossave.gif" tofile="com/mindprod/cmossave/cmossave.icon32.gif" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon32/cmossave.gif" tofile="E:/mindprod/utility/cmossave.icon32.gif" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon32/cmossave.png" tofile="com/mindprod/cmossave/cmossave.icon32.png" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon48/cmossave.png" tofile="com/mindprod/cmossave/cmossave.icon48.png" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon64/cmossave.gif" tofile="E:/mindprod/utility/cmossave.icon64.gif" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon64/cmossave.gif" tofile="com/mindprod/cmossave/cmossave.icon64.gif" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/icon64/cmossave.png" tofile="com/mindprod/cmossave/cmossave.icon64.png" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/screenshot/cmossave.png" tofile="com/mindprod/cmossave/cmossave.screenshot.png" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/splash/cmossave.gif" tofile="E:/mindprod/utility/cmossave.splash.gif" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/image/splash/cmossave.gif" tofile="com/mindprod/cmossave/cmossave.splash.gif" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/jdisplay.css" todir="com/mindprod/cmossave" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/mindprod.css" todir="com/mindprod/cmossave" failonerror="false" overwrite="true" />
+    <copy file="E:/mindprod/pad/cmossave.xml" todir="com/mindprod/cmossave" failonerror="false" overwrite="true" />
+</target>
+
+<!-- J A R -->
+<!-- Dummy. There is no jar. -->
+<target name="jar" depends="gather">
+</target>
+
+<!-- P O S T J A R -->
+<!-- Dummy. There is no jar to post. -->
+<target name="postjar" depends="jar">
+</target>
+
+<!-- J E T  -->
+<!-- Dummy. Not using Jet -->
+<target name="jet">
+</target>
+
+<!-- Z I P -->
+<target name="zip" depends="gather,compile">
+<echo message="    :::    cmossave    :::    preparing zip distributable." />
+  <!-- Remove references to separate foot files. -->
+  <exec executable="prunefoot.exe" failifexecutionfails="false" dir="com/mindprod/cmossave">
+    <arg value="cmossave.html" />
+    <arg value="cmossave.manual.html" />
+  </exec>
+  <zip destfile="com/mindprod/cmossave/cmossave47.zip" duplicate="preserve" filesonly="true" includes="${distributed.exts}" excludes="${nondistributed}">
+    <!-- zipfileset includes all subdirs as well -->
+    <zipfileset dir="com/mindprod/cmossave" prefix="com/mindprod/cmossave" includes="${distributed.exts}" excludes="${nondistributed}" />
+  </zip>
+
+  <!-- Z I P L O O K -->
+  <exec executable="jarlook.exe" dir="com/mindprod/cmossave" output="com/mindprod/cmossave/zip.look">
+    <arg value="cmossave47.zip" />
+  </exec>
+</target>
+
+<!-- P O S T Z I P -->
+<target name="postzip" depends="zip">
+<echo message="    :::    cmossave    :::    posting zip to website." />
+  <!-- copy precis to website -->
+  <copy file="com/mindprod/cmossave/cmossave.use" tofile="E:/mindprod/precis/cmossave.txt" overwrite="true" />
+  <!-- copy zip to website -->
+  <copy file="com\mindprod\cmossave/cmossave47.zip" todir="E:/mindprod/zips" overwrite="true" />
+  <!-- delete old zip distributable from project and website -->
+  <delete file="com/mindprod/cmossave/cmossave46.zip" failonerror="false" />
+  <delete file="E:/mindprod/zips/cmossave46.zip" failonerror="false" />
+</target>
+</project>

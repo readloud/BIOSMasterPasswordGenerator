@@ -1,0 +1,90 @@
+
+----
+
+Version History:
+
+ 1.0 1991-09-07 released to BIX
+
+ 1.1 1991-09-18 released to BIX
+                added special check for small 64 character CMOSes.
+
+ 1.2 1991-09-19 fix spelling errors
+                use CMOS.SAV instead of MyCMOS.SAV in examples
+
+ 1.3 1991-09-20 now consider fewer bytes volatile, restore more stuff.
+                hints in docs about clearing CMOS.
+
+ 1.4 1991-09-21 now consider flags Status register C, offset 0C as volatile.
+                fixes false alarms.
+
+ 1.5 1994-06-01 change of address and phone number
+                address now appears in the banner.
+
+ 1.6 1994-08-29 more information about how CMOS bits are used.
+
+ 2.0 1994-10-01 easier configuration of CHKCMOS volatile bytes.
+                smarter bat files.
+                docs on different ways to use.
+
+ 2.2 1995-04-16 docs on use before experimentation
+
+ 2.3 1995-07-24 add 3F as volatile byte.  PCI Pentiums are volatile.
+
+ 2.4 1995-08-07 add /Q switch to suppress banners, only complain
+                presume installation done to C:\CMP and that files saved there too.
+
+ 2.5 1996-01-27 better documentation
+
+ 2.6 1996-06-03 better documentation. Win 95 explanations.
+
+ 2.7 1996-08-19 treat hex 3F differently in CMOSRest and CMOSChk
+
+ 2.8 1996-10-23 POB in Quathiaski address.  Back to C:\SAFE as presumed directory
+                lower cost $10, combined site licence.
+
+ 2.9 1996-11-12 fix missing com files.
+
+ 3.0 1997-07-08 notes on Y2K checking
+                notes on separate rescue diskettes.
+
+ 3.1 1998-10-23 new address
+                Win98 ok note.
+
+ 3.2 1998-11-07 slight changes to visuals to conform with standard.
+                embed Barker address
+
+ 3.3 1999-10-04 document problems with NT
+                CMOSREST now does a read to verify that the restore succeeded.
+
+ 3.4 2000-05-10 also treat byte 38 as volatile.
+
+ 3.5 2001-01-05 also treat byte 30 as volatile at request of Sony.
+
+ 3.6 2001-01-08 major simplification to bat files.
+
+ 3.7 2001-01-08 treat 0A as volatile for cmoschk.
+
+ 3.8 2002-02-15 new mailing address
+
+ 3.9 2006-02-05 different pad directories
+                explanation of extended CMOS
+
+ 4.0 2008-01-02 add PAD, icon, renaming.
+
+ 4.1 2008-09-21 clarify use of standand and extended CMOS in docs.
+
+ 4.3 2009-03-10 provide ANT build
+                refactor into three separate programs with common includes.
+                remove all BAT files.
+                remove references to BAT files and automatic mode from documentation.
+                more information on use with Vista/XP
+
+ 4.4 2009-08-05 make offsets 40, 41 and 42 volatile
+
+ 4.5 2009-08-11 fix bug in cmoschk that was making it misidentify volatile bytes. Introduced by recent code reordering.
+
+ 4.6 2009-08-20 refactor
+
+ 4.7 2012-11-25 minor changes to make compile
+
+-30-

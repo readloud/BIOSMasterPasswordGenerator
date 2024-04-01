@@ -1,0 +1,198 @@
+WHAT IS "BIOS Patcher"? 
+
+BIOS Patcher is a kind of software that can find and fix errors in your system
+BIOS (only AWARD BIOS for now) and also it can add or open new features,
+i.e. some features that your BIOS has but they are closed by manufacturer
+of your motherboard.
+
+
+WHAT DOES IT MAKE? 
+
+BIOS Patcher scans rom file. If it finds any known errors it fixes the errors.
+If it finds any closed features it opens it. Also if it is started with
+any keys for add new features than it should add it.
+
+
+HOW DOES IT WORK? 
+
+As we know AWARD BIOS consists of several LHA-packed parts. For scan patcher
+extracts parts that it needs into RAM and looks for parts of code that it
+knows and that contains errors. If it finds something looks like an error
+it should check this error by several other signals and if all is allright
+patcher will signalize about it. If patcher has some mishmash about this error
+it shouldn't fix it.
+
+
+WHY DOES IT WORK? 
+
+It is rather big question. I'll try to tell about shortly. Programmers who
+writes AWARD Bios sells it to motherboard manufacturers, who can change and/or
+add new features. It seems clear that nobody will write BIOS from the very
+beginning (Simple not every company has their own programmers and money for
+them :-))
+That's why BIOSes of most motherboards looks like others. That is why all that
+motherboards has seldom updates of their BIOSes. And that's why most of them
+has identical errors and that's why patcher works more effective with this
+BIOSes.
+
+"Adult" companies make changes (a lot and serious). Patcher can distinguish
+brand BIOSes such as Gigabyte or Asus.
+I haven't information but it seems to me that Asus has rights to AWARD BIOSes
+and it writes their own BIOSes (with AWARD logo). It means that Asus has their
+own standarts and often has no any connection with "normal" AWARD BIOSes. So
+that is why such tools as cbrom or modbin can't work with Asus BIOSes. And
+also I want to stress that Asus has no problem with programmers and their
+BIOSes often seems like an art. (that is why almost a third part of patcher is
+a database of all features of Asus BIOSes).
+
+And as an answer to this question - patcher works because of most general
+roots of all Award BIOSes (a great part of them hasn't changed since 1990).
+
+
+WHAT IS CHANCE OF FAILURE? 
+
+Possibility of failure presents every time. But as I told above for
+identification of errors patcher uses many signals and error can't be because
+of work of patcher.
+
+
+WHICH PARTS OF ROM IT MAKES CHANGES? 
+
+"Know How" of this patcher is in that.... it fixes nothing! I.e. that all
+parts of rom doesn't changes. Changes only microcodes and other changeable
+parts. Simply all changes makes in stand-alone file and it loads in progress
+of POST. It means that as a result of work there are two files - file of
+changes (modul.tmp) and file of start (start.tmp) - to load changes. This two
+files add to rom with standart tool - cbrom (automatically - it is integrated
+into patcher). As a result of such way of making changes we make several
+things:
+- all manipulations with BIOS makes by AWARD tools;
+- we can make no changes;
+- flashing of BIOS can be with out flashing BootBlock and that's why this
+procedure is more reliable.
+
+Only Asus BIOSes has their own non-standart structure of extracting modules
+while POST, that is why we should change BootBlock too. 
+Also we need to change a Boot Block in case of adding several features such as
+"+PCI" for VIA-based motherboards and also support of 256Mbit memory modules
+(while in progress) and so on. In all this cases we have no 100% reliability
+of patcher and that's why it is only for tests.
+Also I'd like to note, that in case of editing of BootBlock in rom patcher
+will signalize a message like that "Warning! BootBlock was changed! Flashing
+BIOS only WITH BootBlock!"
+
+
+HOW SAFE IS IT? 
+
+Patcher has several features against failures.
+
+1. Virtual "DUAL-BIOS"
+
+Because of keeping changes in one file patcher can load both BIOSes - original
+and fixed. This Roll Back starts if you'll press "-" on keyboard during BOOT.
+Module of changes reads pressed key and in case of minus simply skips fixed
+BIOS and loads old BIOS.
+
+2. Roll Back without keyboard.
+
+Unfortunately, there is no universal initialization of keyboard controller for
+all motherboards, that is why sometimes doesn't work read of pressed key. In
+this case BIOS uses absence of keyboard. If module of changes can't get signal
+from keyboard (DIN or PS/2) it should load old BIOS. Afterwards you can
+connect keyboard and flash your old BIOS. But I think that you shouldn't use
+this case.
+
+As I count minimal reliabity of patcher is about 95%. IMHO this figure shows
+reliability and a question about reliability solved (for people who has little
+practise in flashing BIOSes).
+
+
+
+;===============================[]
+WHAT CAN THAT PATCHER DO? 
+;===============================[]
+
+Patcher works with BIOSes:
+
+- 1Mbit (128kB), 2Mbit (256kB), 4Mbit (512kB)
+- Award 4.5x, Award(Phoenix) 6.xx
+- Pentium - Socket5, Socket7, SuperSocket7; Pentium II/III - Socket8, Slot1,
+Socket370 (PPGA/FC-PGA/FC-PGA2), AMD K7 - Slot-A, SocketA; Pentium 4
+(Socket423/Socket478)
+- "Asus standart" of packing BIOS modules (in CUSL/TUSL etc)
+
+
+=> Patcher can add support of CPU:
+
+- AMD K6/K6-2/K6-III/K6-2+/K6-III+
+- Intel Pentium Pro/Pentium II/Pentium III/Celeron
+- AMD K7/K75/Athlon/Duron/Athlon 4/Athlon MP/Athlon XP (tested!)
+- Intel Pentium 4/Celeron-478 (tested!)
+
+"Support" means not only names of CPUs (which shows with kernel name and can be
+change) but correct init of L2-cache, FSB, Multiplyer, support of different
+steppings. There are many thing that patcher makes, and all of them that the
+manufacturer didn't make for correct support of CPU.
+
+Note: It doesn't mean that you shouldn't modify your board for electric
+compatibility with CPU.
+
+=> Patcher can make support of big HDD (up to 137 Gb) with fixing "UDMA"-problem (HDD UDMA66/100/133 on only_UDMA33 MB)
+
+=> Patcher can add much more choice of frequencies in BIOS SETUP
+
+=> Patcher can add ASYNC mode of memory on VIA 693A,694X,694T (+PCI) and on
+VIA 693 and less (-PCI), Interleaving (2/4 way), minimal timings (2-2-2-5-2),
+IOQ Depth (8) and so on.
+
+=> Also patcher changes default choice on exit from BIOS (from N to Y) in old
+(AWARD 4.5x) BIOSes, default date is 2003 and others little but useful thing
+for people who work with a great quantity of boards (people like me :-)).
+
+=> Also for P4 BIOSes which has Hyper-Threading patcher can unlock the choice
+of this menu in BIOS Setup for ANY CPU.
+Note: It doesn't add but it's unlock (open) this menu.
+
+
+Other things that are in progress now: 
+
+- support of 64/128 Mbit memory on P1 platform (Via VPX and i430TX), 256 Mbit
+on P2/P3 platform (VIA 693A and some of VIA 694X)
+- add load by hot key from proper device
+- support editing of AMIBIOS and so on.
+
+
+;===========================[]
+HOW TO WORK WITH PATCHER? 
+;===========================[]
+
+All is very simple - just copy patcher and rom file to any directory and run:
+
+bp name_of_rom [keys]
+
+Keys:
+
+/c - force name of CPU (it will be shown for ANY CPU PLUGGED INTO THIS BOARD)
+/d - don't delete temporary files
+/e - show rom file info. This is like cbrom.exe /d (only info and no patch)
+/h - help
+/m - manual choosing of things to patch. By default patcher fixes all errors.
+/p - add "+PCI" (RAM_freq>CPU_freq) for VIA 693A/694X/694T (testing)
+/s - turn off roll back
+/v - overcloking (speed optimization) of memory for VIA-based motherboards P1/P2/P3 (testing)
+
+Examples:
+
+"bp 6130.bin /e"
+"bp 6via86p.bin /p/c/d"
+
+After patching you should flash your BIOS. HOW? If you don't know how, maybe you shouldn't have to do it? :-)
+
+
+
+---=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=---
+based patcher version is 4.1 
+
+All questions, requests and offers - http://rom.by/phpBB2/viewforum.php?f=4
+
+(c)apple_rom, bios@rom.by, www.ROM.by.

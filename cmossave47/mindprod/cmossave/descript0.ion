@@ -1,0 +1,44 @@
+"desc.btm" creates TCC file descriptions for project files
+"descother.btm" creates TCC file descriptions for non-project files
+"run.bat" execute the cmossave application from the jar
+"cmossave.class" cmossave main Java program compiled byte code
+"cmoschk.class" alternate Java program compiled byte code
+"cmosrest.class" alternate Java program compiled byte code
+"cmossave.com" DOS 16-bit executable to run the cmossave program: Restores corrupted CMOS from backup
+"cmoschk.com" DOS 16-bit executable to run the cmoschk program
+"cmosrest.com" DOS 16-bit executable to run the cmosrest program
+"cmossave.manual.html" detailed HTML manual for the CMOSSave project
+"mindprod.css" cascading style sheet for general HTML
+"jdisplay.css" cascading style sheet for displaying source code in HTML
+"package-info.java" Dummy Java source with JavaDoc describing the entire package.
+"untouch.digest" generated: enables untouching (set date back) unchanged but redated files.
+"mindprodcert2014dsa.cer" Public key for Mindprod code-signing certificate. Cannot be used to sign jars.
+"DESCRIPT.ION" TCC file descriptions
+"descript0.ion" generated file of overriding descriptions to merge into DESCRIPT.ION
+"descript2.ion" generated file default descriptions to merge into DESCRIPT.ION
+"MasterDistribution.site" URL to find the master copy of the CMOSSave project files
+"cmossave.use" precis(summary) Restores corrupted CMOS from backup Generated
+"cmossave.vpj" Slick Edit project ini file
+"cmossave.vpw" Slick Edit project ini file
+"cmossave.vtg" Slick Edit binary tag xref file
+"cmossave.icon16.png" 16x16 icon for the CMOSSave project
+"cmossave.icon32.png" 32x32 icon for the CMOSSave project
+"cmossave.icon48.png" roughly 48x48 icon for the CMOSSave project
+"cmossave.icon64.png" roughly 64x64 icon for the CMOSSave project
+"cmossave.icon128.png" roughly 128x128 icon for the CMOSSave project
+"cmossave.screenshot.png" screenshot for the CMOSSave project
+"cmossave.splash.gif" splash gif for the CMOSSave project
+"cmossave.icon32.gif" 32x32 gif icon for the CMOSSave project
+"cmossave.icon64.gif" 64x64 gif icon for the CMOSSave project
+"_O_V_E_R_V_I_E_W.txt" Commented List of all files for CMOSSave, with one line descriptions.
+"use.txt" key facts about the CMOSSave project. Generates cmossave.use
+"version.txt" key rurrent version info about the CMOSSave project. Generates cmossave.use
+"versionhistory.txt" version history about the CMOSSave project. Generates cmossave.use
+"cmossave.txt" ASCII text manual for the CMOSSave project.
+"build.xml" Complex ANT build script for CMOSSave
+"rebuild.xml" Simplified ANT build script for CMOSSave
+"forgather.xml" list of extra gather steps for ANT.
+"forzip.xml" list of extra files for ANT include in cmossave47.zip
+"cmossave.xml" ASP PAD desc of the CMOSSave project: Restores corrupted CMOS from backup
+"cmossave47.zip" CMOSSave 4.7 distribute zip: Restores corrupted CMOS from backup
+"zip.look" uncommented zip manifest for cmossave47.zip

@@ -1,0 +1,78 @@
+       CMOS DE-ANIMATOR VERSION CHANGELOG
+=================================================
+
+
+
+v3.0.1
+---------------------
+Released on 24th June 2014
+
+New features:
+
+  + Added wizard for bootable media creation
+    called "CMOS De-Animator bootable", which
+    does not format the drive and also doesn't
+    require administrator privileges to work
+
+Changes:
+
+  + Test CMOS read now displays hour and minute
+  + Executable size decrease to 628 kB
+
+Bootable version features:
+
+  + Clear CMOS, hexadecimal/ASCII CMOS dump
+  + 24C06 EEPROM dump (Dell)
+  + Clear User/Supervisor passwords (Acer)
+
+
+v3.0.0 ("revision 0")
+---------------------
+Released on 27th October 2013
+
+New features: 
+
+  + dump 24C06 EEPROM to ASCII scancodes (Dell)
+  + command-line support, use /? to get help)
+  + silent mode
+  + new GUI
+
+Changes:
+
+  + Compatible with Win95/NT 3.51 all the way
+    up to Windows 8.1 (tested 2014)
+
+v2.1
+---------------------
+Released on 11th August 2011
+
+Changes:
+
+  + Minor bugfixes
+  + Usage warning added
+
+
+v2.0 ("v2")
+---------------------
+Released on 15th September 2010
+
+New features:
+
+  + Backup and restore CMOS from a file
+  + Single-executable GUI
+  + Test CMOS reading at startup
+
+Changes:
+
+  + Compatibility: Win98 up to Win7
+  + Less false-positive alertss from antivirus
+    software
+
+v1.0 (x86 and x64)
+---------------------
+Initial release.
+Released on 14th August 2010
+
+  + Clear CMOS under Windows!
+  + Compatibility: Windows all (x86)
+                   Win XP, Vista, 7 (x64)

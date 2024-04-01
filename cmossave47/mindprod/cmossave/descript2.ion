@@ -1,0 +1,14 @@
+"cmossave.asm" cmossave main DOS asm program source
+"cmossave.obj" generated: cmossave main DOS asm program linkable object
+"cmossave.lst" generated: cmossave main DOS asm program assembler listing
+"cmossave.map" generated: cmossave main DOS asm program linker output
+"cmoschk.asm" cmoschk alt asm program source
+"cmoschk.obj" generated: cmoschk alt DOS asm program linkable object
+"cmoschk.lst" generated: cmoschk alt DOS asm program assembler listing
+"cmoschk.map" generated: cmoschk alt DOS asm program linker output
+"cmosrest.asm" cmosrest alt asm program source
+"cmosrest.obj" generated: cmosrest alt DOS asm program linkable object
+"cmosrest.lst" generated: cmosrest alt DOS asm program assembler listing
+"cmosrest.map" generated: cmosrest alt DOS asm program linker output
+"a.bat" Assemble with MASM 6 and Link 5.6 to *.com
+"o.bat" Assemble with OptAsm and OLink to *.com

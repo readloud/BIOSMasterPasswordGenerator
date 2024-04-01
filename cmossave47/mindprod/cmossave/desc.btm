@@ -1,0 +1,20 @@
+@echo off
+@echo  °±² desc.btm: add TCC descriptions to all cmossave files  ²±° 
+rem encoded in IBM437
+rem Update the TCC file descriptions in DESCRIPT.ION and _O_V_E_R_V_I_E_W.txt
+Rem adjust drive letter before use:
+E:
+cd E:\com\mindprod\cmossave
+attrib -h DESCRIPT.ION > nul:
+rem Provide generic descriptions for *.class files still without specific descriptions.
+for %i in (*.class ) do describe %i /D"compiled Java byte code"
+rem Merge generated descript0.ion and descript2.ion to fill in missing descriptions.
+rem descript0.ion takes precedence over DESCRIPT.ION which takes precedence over descript2.ion.
+copy /Q /B descript0.ion + DESCRIPT.ION + descript2.ion temp.ion
+del /Q DESCRIPT.ION
+rename /Q temp.ion DESCRIPT.ION
+rem Build _O_V_E_R_V_I_E_W.txt from TakeCommand/TCC DESCRIPT.ION file descriptions.
+rem Tidy, sort and dedup descriptions keeping most detailed description.
+fourtidy.exe -f
+echo done
+rem -30-
